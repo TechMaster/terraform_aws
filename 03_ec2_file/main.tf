@@ -28,7 +28,7 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.instance.id]
   
-  user_data = file("script.bash")
+  user_data = file("script.bash") //Đọc file script.bash cùng thư mục vào, tốt hơn dùng Heredoc syntax
   tags = {
     Name = "PythonWebServer"
   }
