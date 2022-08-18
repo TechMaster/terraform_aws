@@ -56,3 +56,6 @@ resource "aws_instance" "app_server" {
     Name = "PythonWebServer"
   }
 }
+output "server_public_ip" {
+  value = aws_instance.app_server.public_ip
+}
