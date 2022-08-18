@@ -1,6 +1,6 @@
 Bài này sẽ dựng một EC2, cài nginx sau đó copy thư mục travel để hosting
 
-Những thay đổi so với bài 09_remote_ssh:
+## Những thay đổi so với bài 09_remote_ssh:
 
 1. Các file *.tf được chia nhỏ đến từng chức năng cụ thể. Chỉ cần nhìn tên file là biết nhiệm vụ.
 2. Bổ xung lệnh copy folder từ local vào EC2
@@ -28,3 +28,13 @@ Những thay đổi so với bài 09_remote_ssh:
     }
   ```
 3. Trong file remote.tf sử dụng lệnh Linux sed để thay thế chuỗi `/usr/share/nginx/html` bằng `/usr/share/nginx/html/travel`
+
+## Kết quả khi chạy
+
+Outputs:
+ssh_command = "ssh -i 'demokey.pem' ec2-user@13.212.92.39"
+web_site = "http://13.212.92.39"
+
+
+Web site hiện ra
+![demo](demo.png)
