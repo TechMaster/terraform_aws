@@ -31,11 +31,11 @@ resource "aws_instance" "web" {
 3. Trong file remote.tf sử dụng lệnh Linux sed để thay thế chuỗi `/usr/share/nginx/html` bằng `/usr/share/nginx/html/travel`
 
 ## Kết quả khi chạy
-
+```
 Outputs:
 ssh_command = "ssh -i 'demokey.pem' ec2-user@13.212.92.39"
 web_site = "http://13.212.92.39"
-
+```
 
 Web site hiện ra
 ![demo](demo.png)
