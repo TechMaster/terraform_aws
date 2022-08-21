@@ -8,11 +8,18 @@ resource "aws_security_group" "terramino_instance" {
     security_groups = [aws_security_group.terramino_lb.id] //chỉ nhận request từ Load Balancer
   }
 
-  egress {  //Cho phép mở tất cả cổng kết nối ra bên ngoài
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    security_groups = [aws_security_group.terramino_lb.id] //chỉ nhận request từ Load Balancer
+  ingress { //Cho phép SSH từ bất kỳ địa chỉ nào
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress { //Cho phép mở tất cả cổng kết nối ra bên ngoài
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"] //[aws_security_group.terramino_lb.id] //chỉ nhận request từ Load Balancer
   }
   vpc_id = module.vpc.vpc_id
 }

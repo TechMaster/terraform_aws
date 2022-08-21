@@ -23,6 +23,13 @@ resource "aws_security_group" "instance" {
     from_port   = var.server_port
     to_port     = var.server_port
     protocol    = "tcp"
+    security_groups = [aws_security_group.alb.id]
+  }
+
+  ingress { //SSH
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
