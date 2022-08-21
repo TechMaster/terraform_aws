@@ -23,6 +23,7 @@ resource "aws_lb" "terramino" {
   subnets            = module.vpc.public_subnets
 }
 
+//Tạo Listener forward các HTTP request đến target group
 resource "aws_lb_listener" "terramino" {
   load_balancer_arn = aws_lb.terramino.arn
   port              = "80"
@@ -34,6 +35,7 @@ resource "aws_lb_listener" "terramino" {
   }
 }
 
+//Tạo target group
 resource "aws_lb_target_group" "terramino" {
   name     = "learn-asg-terramino"
   port     = 80
@@ -51,6 +53,7 @@ resource "aws_lb_target_group" "terramino" {
   }
 }
 
+//Gắn target group vào autoscaling group
 resource "aws_autoscaling_attachment" "terramino" {
   autoscaling_group_name = aws_autoscaling_group.terramino.id
   lb_target_group_arn    = aws_lb_target_group.terramino.arn
