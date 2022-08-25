@@ -1,6 +1,6 @@
 #creating OAI :
 resource "aws_cloudfront_origin_access_identity" "oai" {
-  comment = "OAI for ${var.domain_name}"
+  //comment = "OAI for ${var.domain_name}"
 }
 
 resource "aws_cloudfront_distribution" "s3_distribution" {

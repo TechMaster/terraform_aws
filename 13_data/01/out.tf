@@ -1,5 +1,5 @@
 output "availability_zones" {
- value = data.aws_availability_zones.available.names
+ value = data.aws_availability_zones.az_available.names
 }
 
 output "running_instances" {
