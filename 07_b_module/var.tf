@@ -3,7 +3,7 @@ variable "keys" {
   type        = map
   default     = {
     keyA = "bastion_key",
-    keyB = "private_key"
+    keyB = "db_key"
   }
 }
 variable "region" {
